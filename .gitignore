@@ -1,0 +1,9 @@
+# Ignorar dependencias de Node.js en cualquier subdirectorio
+node_modules/
+
+# Ignorar archivos de entorno con secretos
+.env
+
+# Ignorar archivos de caché y artefactos de Hardhat
+contracts/artifacts/
+contracts/cache/

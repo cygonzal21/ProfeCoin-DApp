@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel ProfeCoin</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1, h2, h3 { text-align: center; }
+        .section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: calc(100% - 24px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 12px; border: none; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; font-size: 1em; }
+        button:hover:not(:disabled) { background-color: #0056b3; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        #message { margin-top: 20px; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        #student-results, #admin-panel, #history-panel { margin-top: 20px; }
+        .student-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; }
+        /* Nuevos estilos para los paneles en columnas */
+.panels-container {
+    display: flex;
+    gap: 20px; /* Espacio entre las columnas */
+    align-items: flex-start; /* Alinea los paneles en la parte superior */
+}
+
+.panel {
+    flex: 1; /* Hace que cada panel ocupe el mismo espacio */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ... (todos los estilos anteriores se mantienen) ... */
+
+.registration-form {
+    background-color: #f8f9fa; /* Un color de fondo ligeramente diferente */
+    border-style: dashed;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Panel ProfeCoin</h1>
+
+        <!-- Contenedor principal para los dos paneles -->
+        <div class="panels-container">
+
+            <!-- Panel de Administración (Columna Izquierda) -->
+            <div class="panel">
+                <div id="admin-panel" class="section">
+                    <h2>Panel de Administración</h2>
+                    <!-- Las tarjetas de los estudiantes se generarán aquí con JavaScript -->
+                </div>
+            </div>
+
+            <!-- Panel del Estudiante (Columna Derecha) -->
+            <div class="panel">
+                <div class="section">
+                    <h2>Consulta de Estudiante</h2>
+                    <div class="form-group">
+                        <label for="studentAddressInput">Dirección del Estudiante:</label>
+                        <input type="text" id="studentAddressInput" placeholder="Introduce la dirección 0x...">
+                    </div>
+                    <button id="checkBalanceBtn">Consultar Mis Saldos</button>
+                    <div id="student-results"></div>
+                </div>
+            </div>
+
+        </div> <!-- Fin de panels-container -->
+
+        <!-- Área de Mensajes Globales (fuera de las columnas) -->
+        <div id="message"></div>
+
+        <!-- Sección de Historial de Transacciones (ocupa todo el ancho) -->
+        <div id="history-panel" class="section">
+            <h2>Historial de Transacciones Recientes</h2>
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Detalles</th>
+                        <th>Hash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas del historial se insertarán aquí -->
+                </tbody>
+            </table>
+        </div>
+
+    </div> <!-- Fin de container -->
+
+    <script src="app.js"></script>
+</body>
+
+</html>
